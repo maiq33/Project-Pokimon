@@ -12,7 +12,13 @@ c.fillStyle = 'white'
 c.fillRect(0, 0, canvas.width, canvas.height)
 
 const image = new Image()
-image.src = '/workspaces/Project-Pokimon/Chris Courses - Pokemon/Images/Pellet Town.png'
+image.src = 'ChrisCourses_Pokemon/Images/Pellet_Town_Big.png'
 console.log(image)
 
-//c.drawImage('/workspaces/Project-Pokimon/Chris Courses - Pokemon/Images/Pellet Town.png')
+image.onload = () => {
+    c.drawImage(image, -700, -500)
+}
+
+image.onerror = () => {
+    console.error("Error al cargar la imagen");
+  };
