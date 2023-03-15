@@ -18,14 +18,37 @@ const playerImage = new Image()
 playerImage.src = 'ChrisCourses_Pokemon/Images/playerDown.png'
 
 image.onload = () => {
-    c.drawImage(image, -530, -580);
+    c.drawImage(image, -525, -500);
   }
 
 playerImage.onload = () => {
-    c.drawImage(playerImage, 
-        canvas.width / 2 - playerImage.width / 2, 
-        canvas.height / 2 - playerImage.height / 2);
+    c.drawImage(playerImage,
+        0,
+        0,
+        playerImage.width / 4,
+        playerImage.height, 
+        canvas.width / 2 - playerImage.width / 4 / 2, 
+        canvas.height / 2 - playerImage.height / 2,
+        playerImage.width / 4,
+        playerImage.height) 
   }
+
+  window.addEventListener('keydown', (e) => {
+    switch (e.key) {
+      case 'a':
+        console.log("se presiono la letra a")
+        break
+      case 'w':
+        console.log("se presiono la letra w")
+        break
+      case 's':
+        console.log("se presiono la letra s")
+        break
+      case 'd':
+        console.log("se presiono la letra d")
+        break
+    }
+  })
 
 
 // Manejador de eventos para el caso de que una imagen no se cargue correctamente
