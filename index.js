@@ -17,12 +17,12 @@ image.src = 'ChrisCourses_Pokemon/Images/Pellet_Town_Big.png'
 const playerImage = new Image()
 playerImage.src = 'ChrisCourses_Pokemon/Images/playerDown.png'
 
-image.onload = () => {
-    c.drawImage(image, -525, -500);
-  }
 
-playerImage.onload = () => {
-    c.drawImage(playerImage,
+image.onload = () => {
+  c.drawImage(image, -525, -500);
+  window.requestAnimationFrame(() => {
+    playerImage.onload = () => {
+      c.drawImage(playerImage,
         0,
         0,
         playerImage.width / 4,
@@ -31,7 +31,9 @@ playerImage.onload = () => {
         canvas.height / 2 - playerImage.height / 2,
         playerImage.width / 4,
         playerImage.height) 
-  }
+    }
+  });
+}
 
   window.addEventListener('keydown', (e) => {
     switch (e.key) {
