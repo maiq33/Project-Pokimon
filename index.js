@@ -18,7 +18,11 @@ const playerImage = new Image()
 playerImage.src = 'ChrisCourses_Pokemon/Images/playerDown.png'
 
 
-image.onload = () => {
+
+
+function animate() {
+  window.requestAnimationFrame(animate);
+  console.log('animate');
   c.drawImage(image, -525, -500);
   window.requestAnimationFrame(() => {
     playerImage.onload = () => {
@@ -30,10 +34,11 @@ image.onload = () => {
         canvas.width / 2 - playerImage.width / 4 / 2, 
         canvas.height / 2 - playerImage.height / 2,
         playerImage.width / 4,
-        playerImage.height) 
-    }
+        playerImage.height); 
+    };
   });
 }
+animate()
 
   window.addEventListener('keydown', (e) => {
     switch (e.key) {
