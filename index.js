@@ -17,10 +17,31 @@ image.src = 'ChrisCourses_Pokemon/Images/Pellet_Town_Big.png'
 const playerImage = new Image()
 playerImage.src = 'ChrisCourses_Pokemon/Images/playerDown.png'
 
+class Sprite {
+  constructor ({position, velocity, image}){
+    this.position = position
+    this.image = image
+  }
+
+  draw(){
+    c.drawImage(this.image, -525, -500);
+  }
+}
+
+const background = new Sprite ({
+  position: {
+    x: -525,
+    y: -500
+  },
+  image : image
+})
+
 function animate() {
   window.requestAnimationFrame(animate);
   console.log('animate');
-  c.drawImage(image, -525, -500);
+
+  background.draw()
+  
  
   c.drawImage(playerImage,
      0,
