@@ -24,7 +24,7 @@ class Sprite {
   }
 
   draw(){
-    c.drawImage(this.image, -525, -500);
+    c.drawImage(this.image, this.position.x, this.position.y);
   }
 }
 
@@ -35,6 +35,21 @@ const background = new Sprite ({
   },
   image : image
 })
+
+const keys = {
+  w: {
+    pressed: false
+  },
+  a: {
+    pressed: false
+  },
+  s: {
+    pressed: false
+  },
+  d: {
+    pressed: false
+  }
+}
 
 function animate() {
   window.requestAnimationFrame(animate);
@@ -52,25 +67,57 @@ function animate() {
      canvas.height / 2 - playerImage.height / 2,
      playerImage.width / 4,
      playerImage.height);
+
+  if(keys.w.pressed){
+    background.position.y += 3
+  }
+  if(keys.a.pressed){
+    background.position.x += 3
+  }
+  if(keys.s.pressed){
+    background.position.y -= 3
+  }
+  if(keys.d.pressed){
+    background.position.x -= 3
+  }
 }
 animate()
 
   window.addEventListener('keydown', (e) => {
     switch (e.key) {
       case 'a':
-        console.log("se presiono la letra a")
+        keys.a.pressed = true
         break
       case 'w':
-        console.log("se presiono la letra w")
+        keys.w.pressed = true
         break
       case 's':
-        console.log("se presiono la letra s")
+        keys.s.pressed = true
         break
       case 'd':
-        console.log("se presiono la letra d")
+        keys.d.pressed = true
         break
     }
   })
+
+  window.addEventListener('keyup', (e) => {
+    switch (e.key) {
+      case 'a':
+        keys.a.pressed = false
+        break
+      case 'w':
+        keys.w.pressed = false
+        break
+      case 's':
+        keys.s.pressed = false
+        break
+      case 'd':
+        keys.d.pressed = false
+        break
+    }
+  })
+
+
 
 
 // Manejador de eventos para el caso de que una imagen no se cargue correctamente
