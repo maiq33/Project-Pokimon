@@ -6,7 +6,7 @@ canvas.width = 1024
 canvas.height = 512
 
 
-console.log(c)
+console.log(collisions)
 
 c.fillStyle = 'white'
 c.fillRect(0, 0, canvas.width, canvas.height)
